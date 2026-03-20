@@ -1,100 +1,86 @@
-# 🏦 AI Voice Banking Assistant (VIBANK)
+# AI Voice Banking Assistant
 
-AI-powered banking assistant that processes user voice queries, converts them into text, detects intent, and generates intelligent responses using a custom NLP pipeline.
+This project is a voice-enabled banking assistant that processes user queries, detects intent, and returns relevant responses using a combination of speech recognition and NLP models.
 
----
-
-## 🚀 Core Features
-
-* 🎤 Voice input using speech-to-text (Whisper)
-* 🧠 Intent detection using fine-tuned BERT model
-* 🔍 Knowledge base retrieval system
-* 💬 Real-time chat interface (customer & agent)
-* 🔐 Authentication system (login/signup)
-* 🗂 Banking dataset integration (Banking77)
+The system takes voice input, converts it to text, classifies the intent using a trained BERT model, and retrieves appropriate responses through a custom pipeline.
 
 ---
 
-## 🛠 Tech Stack (ACTUAL)
+## Features
 
-### 🔹 Frontend
+* Voice input handling using speech-to-text
+* Intent classification using a fine-tuned BERT model
+* Retrieval-based response system
+* Separate interfaces for customer and agent interactions
+* Basic authentication system
+* Integration with a banking-related dataset (Banking77)
+
+---
+
+## Tech Stack
+
+### Frontend
 
 * React.js
 * Tailwind CSS
-* Axios (API communication)
+* Axios for API communication
 
-### 🔹 Backend
+### Backend
 
 * FastAPI (Python)
-* SQLite (local database: `bank.db`)
-* REST APIs
+* SQLite database (`bank.db`)
+* REST API architecture
 
-### 🔹 AI / ML
+### AI / NLP
 
-* Whisper (speech-to-text)
-* BERT (intent classification)
-* Custom NLP pipeline (`assistant_pipeline.py`)
-* Retrieval-based response system
+* Whisper for speech-to-text
+* BERT for intent classification
+* Custom pipeline for processing queries (`assistant_pipeline.py`)
+* Intent routing and retrieval modules
 
-### 🔹 Data
+### Data
 
-* Banking77 dataset (`banking77_train.csv`, `banking77_test.csv`)
-* Intent labels (`intent_labels.json`)
-* Custom knowledge base (`banking_knowledge.txt`)
+* Banking77 dataset for training and testing
+* Intent labels stored in JSON format
+* Custom knowledge base for responses
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ai-voice-banking-assistant/
-│
-├── backend/
-│   ├── main.py
-│   ├── chat_api.py
-│   ├── auth_api.py
-│   ├── assistant_pipeline.py
-│   ├── bert_classifier.py
-│   ├── train_bert_model.py
-│   ├── whisper_model.py
-│   ├── retriever.py
-│   ├── intent_router.py
-│   ├── database.py / db.py
-│   ├── bank.db
-│   └── requirements.txt
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── tailwind.config.js
-│
-├── banking77_train.csv
-├── banking77_test.csv
-├── intent_labels.json
-├── README.md
-└── .gitignore
+
+backend/
+Contains API routes, database logic, and AI pipeline components
+
+frontend/
+React application for user interaction
+
+banking77_train.csv / banking77_test.csv
+Dataset used for intent classification
+
+intent_labels.json
+Mapping of intents
 
 ---
 
-## ⚙️ How It Works
+## How it works
 
-1. User speaks → audio captured
-2. Whisper converts speech → text
-3. BERT model predicts intent
-4. Intent router selects action
-5. Retriever fetches relevant data
-6. Response returned to frontend
+1. User provides a voice input
+2. Audio is converted to text using Whisper
+3. The text is passed to the BERT model for intent classification
+4. Based on the predicted intent, the system routes the request
+5. Relevant data is retrieved and returned as a response
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup
 
 ### Backend
 
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-
----
 
 ### Frontend
 
@@ -104,23 +90,16 @@ npm start
 
 ---
 
-## ⚠️ Notes
+## Notes
 
-* Large model files are excluded using `.gitignore`
-* Audio files are generated dynamically and not stored in repo
-* Requires local model setup for BERT and Whisper
-
----
-
-## 📌 Future Improvements
-
-* Deploy backend & frontend (Render / Vercel)
-* Real-time voice streaming
-* Improve UI/UX design
-* Add secure authentication (JWT)
+Model files and generated audio are not included in the repository.
+You will need to configure or train models locally before running the system.
 
 ---
 
-## 👨‍💻 Author
+## Future Work
 
-Built as a full-stack AI project combining voice processing, NLP, and web technologies.
+* Improve response generation using LLMs
+* Add real-time voice streaming
+* Enhance UI and user experience
+* Deploy as a full-stack application
