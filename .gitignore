@@ -1,0 +1,18 @@
+# AI models
+*.safetensors
+bert_model/
+
+# Audio files
+*.wav
+*.webm
+*.m4a
+
+# Node
+node_modules/
+
+# Env
+.env
+
+# Python
+__pycache__/
+venv/
